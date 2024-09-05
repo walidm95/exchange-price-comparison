@@ -2,13 +2,13 @@
 
 import { useAppContext } from '@/context/AppContext'
 
-function calculateSpread(price1: number, price2: number): number {
-    return Math.abs(price1 - price2)
+function calculateSpread(longPrice: number, shortPrice: number): number {
+    return shortPrice - longPrice
 }
 
-function calculateSpreadPercentage(price1: number, price2: number): number {
-    const spread = calculateSpread(price1, price2)
-    const averagePrice = (price1 + price2) / 2
+function calculateSpreadPercentage(longPrice: number, shortPrice: number): number {
+    const spread = calculateSpread(longPrice, shortPrice)
+    const averagePrice = (longPrice + shortPrice) / 2
     return (spread / averagePrice) * 100
 }
 
